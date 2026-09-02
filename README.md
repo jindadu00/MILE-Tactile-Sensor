@@ -22,6 +22,10 @@ The sensor integrates:
 
 The STEP files are provided for reproduction and adaptation.
 
+## Fabrication instructions
+
+# TODO
+
 ## Citation
 
 ...
