@@ -47,7 +47,7 @@ Silicone, coatings, adhesives, wires, and printing materials are shared consumab
 | LED strip | 2.6 mm wide; **8 LEDs per sensor**; three illumination directions use red, green, and blue | [Listing](https://item.taobao.com/item.htm?id=570411659913) |
 | LED controller | ATtiny85-based controller board | [Listing](https://detail.tmall.com/item.htm?id=654071116354) |
 | Camera | **120° fixed-focus module with small board** | [Listing](https://item.taobao.com/item.htm?id=713113178023) |
-| 3D printing filament | Bambu PLA Basic; used to print the silicone casting mold and sensor structural parts | [Listing](https://e.tb.cn/h.8yFoHAKwVr1shmb?tk=97oXTMkPX9c) |
+| 3D printing filament | Bambu PLA Basic| [Listing](https://e.tb.cn/h.8yFoHAKwVr1shmb?tk=97oXTMkPX9c) |
 
 Additional procurement references for C-0030 silicone, silver ink, marker ink, and spray-gun cleaner are retained in `Sheet2` of the spreadsheet. They are not required additions to the recipe below.
 
