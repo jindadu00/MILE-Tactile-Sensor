@@ -36,9 +36,9 @@ This release covers mechanical designs, material references, fabrication, and ha
 
 Silicone, coatings, adhesives, wires, and printing materials are shared consumables. Links were supplied by the authors; confirm product options before purchase.
 
-| Component or material | Specification / role | Supplier reference |
+| **Component or material** | **Specification / role** | **Supplier reference** |
 | --- | --- | --- |
-| Silicone elastomer | Smooth-On Solaris; MILE recipe: A:B = **1:2 by mass** | [Solaris](https://e.tb.cn/h.8CfLBqZ0Gq6BevB?tk=VI4yTMjDRcV) |
+| Silicone elastomer | Smooth-On Solaris; MILE recipe: A:B = **1:2 by mass** | [Listing](https://e.tb.cn/h.8CfLBqZ0Gq6BevB?tk=VI4yTMjDRcV) |
 | Mold release agent | Coat the internal casting surfaces | [Listing](https://item.taobao.com/item.htm?id=39270711126) |
 | Transparent silicone adhesive | Bond the uncoated gel surface to acrylic | [Listing](https://item.taobao.com/item.htm?id=593987256695) |
 | White thermally conductive adhesive | Fix the camera after focusing | [Listing](https://item.taobao.com/item.htm?id=600594258578) |
@@ -47,7 +47,7 @@ Silicone, coatings, adhesives, wires, and printing materials are shared consumab
 | LED strip | 2.6 mm wide; **8 LEDs per sensor**; three illumination directions use red, green, and blue | [Listing](https://item.taobao.com/item.htm?id=570411659913) |
 | LED controller | ATtiny85-based controller board | [Listing](https://detail.tmall.com/item.htm?id=654071116354) |
 | Camera | **120° fixed-focus module with small board** | [Listing](https://item.taobao.com/item.htm?id=713113178023) |
-| Gel casting mold filament | Bambu PLA Basic; used to print the silicone casting mold | [Listing](https://e.tb.cn/h.8yFoHAKwVr1shmb?tk=97oXTMkPX9c) |
+| 3D printing filament | Bambu PLA Basic; used to print the silicone casting mold and sensor structural parts | [Listing](https://e.tb.cn/h.8yFoHAKwVr1shmb?tk=97oXTMkPX9c) |
 
 Additional procurement references for C-0030 silicone, silver ink, marker ink, and spray-gun cleaner are retained in `Sheet2` of the spreadsheet. They are not required additions to the recipe below.
 
@@ -56,9 +56,9 @@ Additional procurement references for C-0030 silicone, silver ink, marker ink, a
 ### 1. Prepare the mold and parts
 
 1. Print [GelMode.STEP](CAD/STEP/GelMode.STEP) in PLA to make the silicone casting mold.
-2. Seal the mold bottom with a flat acrylic plate to prevent leakage. This plate closes the mold and is separate from the sensor's acrylic support.
+2. Temporarily seal the mold's open bottom with a flat acrylic plate to prevent leakage during casting and curing. The open-bottom design facilitates removal of the cured silicone layer. This sealing plate is separate from the sensor's acrylic support.
 3. Apply mold release agent to the internal casting surfaces, following the release agent's instructions.
-4. Print `baseCamera` and `baseConnector`. The sensor structural parts in the paper use **C-UV 9400R resin**; PLA is used for the casting mold.
+4. Print `baseCamera` and `baseConnector` in PLA.
 5. Cut the sensor support from **3 mm transparent acrylic** using [acrylic.DXF](CAD/DXF/acrylic.DXF). Import the drawing in millimeters without scaling.
 
 ### 2. Mix, degas, and cast the silicone
@@ -70,7 +70,7 @@ Additional procurement references for C-0030 silicone, silver ink, marker ink, a
 5. Leave the filled mold in a **45°C temperature-controlled chamber for 24 h**, following the authors' laboratory fabrication procedure.
 6. Demold the transparent silicone layer and check the optical region for bubbles and defects.
 
-**Formulation selection:** Section III-C of the manuscript specifies A:B = 1:2 by mass. Supplementary Section IV-B describes screening ten ratios using compression force-displacement responses and qualitative observations of clarity, recovery, tackiness, and fabrication stability. The selected formulation is a practical compromise for this sensor, rather than a universal optimum or standardized Young's-modulus characterization.
+**Formulation selection:** Section III-C of the manuscript specifies A:B = 1:2 by mass. Supplementary Section IV-B describes screening ten ratios using compression force-displacement responses and qualitative observations of clarity, recovery, tackiness, and fabrication stability. The selected formulation is a practical compromise for this sensor, rather than a universal optimum.
 
 The [manufacturer's technical bulletin](https://www.smooth-on.com/tb/files/Solaris_TB.pdf) specifies a standard 1:1 formulation. The **1:2 formulation above is the experimentally selected MILE recipe**. The 45°C / 24 h schedule is the laboratory procedure supplied by the authors.
 
@@ -79,7 +79,7 @@ The [manufacturer's technical bulletin](https://www.smooth-on.com/tb/files/Solar
 1. Weigh gray ink stock and its compatible thinner at **ink:thinner = 1:3 by mass**.
 2. Add the curing agent supplied with the ink at the supplier's specified dose, mix thoroughly, then use a spray gun to deposit a thin, uniform film on the contact-facing silicone surface. The curing-agent dose is separate from the ink-to-thinner ratio.
 3. Make the coating uniform and opaque. Avoid excessive thickness, which can reduce sensing sensitivity according to the authors' fabrication observations.
-4. In the authors' fabrication procedure, the sprayed coating is left to dry for approximately **8 h at room temperature**. Drying can also be accelerated with a heat gun using **100°C hot air for approximately 10 min**. This is the hot-air setting, not a measured silicone-surface temperature. Check that the coating has dried before proceeding.
+4. Allow the coating to dry for approximately **8 h at room temperature**, or accelerate drying with a heat gun. Ensure that the coating is fully dry before assembly.
 
 Leave the opposite gel surface uncoated for bonding to acrylic.
 
@@ -99,7 +99,7 @@ Leave the opposite gel surface uncoated for bonding to acrylic.
 
 ## Maintenance
 
-The modular construction allows the gel and camera to be replaced separately. Replace a damaged gel while retaining the camera, or replace and refocus a damaged camera while retaining the gel. Avoid damaging the acrylic, illumination, and the component being retained during removal.
+The modular construction allows the gel and camera to be replaced separately. Replace a damaged gel while retaining the camera, or replace and refocus a damaged camera while retaining the gel. During removal, protect the illumination assembly and the gel or camera being retained. The acrylic support can be replaced as needed.
 
 ## Citation
 
