@@ -1,20 +1,16 @@
 # MILE Fingertip Visuotactile Sensor
 
-CAD files, material references, and fabrication instructions for the fingertip visuotactile sensor used in **MILE: A Mechanically Isomorphic Hand Exoskeleton and Visuotactile Robotic Hand for Data Collection in Dexterous Manipulation**.
+CAD files, material references, fabrication instructions, and LED-control firmware for the fingertip visuotactile sensor used in **MILE: A Mechanically Isomorphic Hand Exoskeleton and Visuotactile Robotic Hand for Data Collection in Dexterous Manipulation**.
 
 [MILE project page](https://sites.google.com/view/mile-system) · [Bill of materials](BOM/BOM.xlsx)
 
 ## Sensor overview
 
-The module combines a compliant silicone sensing layer, a reflective coating, a transparent acrylic support, internal LED illumination with an ATtiny85-based controller, a miniature RGB camera with a **120° fixed-focus lens**, and printed structural parts. Each sensor uses **eight LEDs**. The three illumination directions use red, green, and blue light, respectively.
+The module combines a compliant silicone sensing layer, a reflective coating, a transparent acrylic support, internal LED illumination with an ATtiny85-based controller, a miniature RGB camera with a **120° fixed-focus lens**, and printed structural parts. The documented assembly uses **eight LEDs** for red, green, and blue illumination from three directions. The supplied firmware defines **ten color positions** in the order `RRRBBGGGBB`, with the final two blue LEDs optional.
 
 ![Exploded view of the sensor, showing the camera, LEDs, acrylic support, and gel layer.](docs/images/sensor-exploded.png)
 
 *Sensor exploded view corresponding to Fig. 3(d) of the MILE manuscript.*
-
-![Hardware views of the MILE system and its key components from Fig. 3.](docs/images/mile-figure3.png)
-
-*Fig. 3 of the MILE manuscript. Panel (d) shows the fingertip sensor, with a nominal envelope of 20 × 28 × 20 mm.*
 
 ## Released files
 
@@ -29,8 +25,10 @@ The module combines a compliant silicone sensing layer, a reflective coating, a 
 | [GelMode.STEP](CAD/STEP/GelMode.STEP) | Silicone casting mold, printed in PLA |
 | [BOM.xlsx](BOM/BOM.xlsx) | Components, consumables, and supplier references |
 | [Illumination assembly and wiring](docs/led-wiring.md) | Assembly reference photographs and soldering instructions |
+| [MILE_LED.ino](Firmware/MILE_LED/MILE_LED.ino) | ATtiny85 LED-control sketch with the `RRRBBGGGBB` color sequence |
+| [Firmware setup](Firmware/README.md) | Upload instructions, pin settings, and brightness configuration |
 
-This release covers mechanical designs, material references, fabrication, and hardware assembly.
+This release covers mechanical designs, material references, fabrication, hardware assembly, and LED-control firmware.
 
 ## Materials and supplier references
 
@@ -44,7 +42,7 @@ Silicone, coatings, adhesives, wires, and printing materials are shared consumab
 | White thermally conductive adhesive | Fix the camera after focusing | [Listing](https://item.taobao.com/item.htm?id=600594258578) |
 | Gray silicone coating ink | Request custom **coolgray** | [Listing](https://item.taobao.com/item.htm?id=594951473152) |
 | Coating thinner | Compatible thinner from the coating supplier | [Listing](https://item.taobao.com/item.htm?id=594951473152) |
-| LED strip | 2.6 mm wide; **8 LEDs per sensor**; three illumination directions use red, green, and blue | [Listing](https://item.taobao.com/item.htm?id=570411659913) |
+| LED strip | 2.6 mm wide; **8 LEDs in the documented assembly**; firmware defines 10 color positions with the final 2 blue LEDs optional | [Listing](https://item.taobao.com/item.htm?id=570411659913) |
 | LED controller | ATtiny85-based controller board | [Listing](https://detail.tmall.com/item.htm?id=654071116354) |
 | Camera | **120° fixed-focus module with small board** | [Listing](https://item.taobao.com/item.htm?id=713113178023) |
 | 3D printing filament | Bambu PLA Basic| [Listing](https://e.tb.cn/h.8yFoHAKwVr1shmb?tk=97oXTMkPX9c) |
@@ -85,8 +83,8 @@ Leave the opposite gel surface uncoated for bonding to acrylic.
 
 ### 4. Assemble illumination, acrylic, and gel
 
-1. Assemble the acrylic support and LED-strip segment containing **eight LEDs** according to the exploded view and assembly CAD. The three illumination directions use **red, green, and blue** light. Secure the support in the middle of the sensor structure.
-2. Route the LED wires through the opening in the housing, solder them to the appropriate strip pads and controller terminals, and check the illumination before bonding the gel. Follow the actual supply, ground, and data-input labels. See [assembly photographs and soldering instructions](docs/led-wiring.md).
+1. Assemble the acrylic support and LED strip according to the exploded view and assembly CAD. The documented assembly uses **eight LEDs**, corresponding to the first eight positions of the firmware sequence `RRRBBGGGBB`. The final two blue LEDs can be omitted from the end of the signal chain. Secure the support in the middle of the sensor structure.
+2. Route and solder the LED wires: **red for 5 V**, **black for ground**, and **blue for the control signal**. The camera board supplies shared 5 V and ground to the ATtiny85 board. Upload the [LED-control sketch](Firmware/MILE_LED/MILE_LED.ino) using the [firmware setup instructions](Firmware/README.md), then check the color order and illumination before bonding the gel. See [assembly photographs and soldering instructions](docs/led-wiring.md).
 3. Use transparent silicone adhesive to bond the **uncoated side** of the gel to acrylic. Avoid trapped air in the optical interface.
 4. Allow approximately **8 h at room temperature** for the bond to cure, following the authors' procedure for the selected adhesive. Check the bond before continuing.
 
