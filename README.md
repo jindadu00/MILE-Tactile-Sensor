@@ -2,7 +2,7 @@
 
 CAD files, material references, fabrication instructions, and LED-control firmware for the fingertip visuotactile sensor used in **MILE: A Mechanically Isomorphic Hand Exoskeleton and Visuotactile Robotic Hand for Data Collection in Dexterous Manipulation**.
 
-[MILE project page](https://sites.google.com/view/mile-system) · [Bill of materials](BOM/BOM.xlsx)
+[MILE project page](https://jindadu00.github.io/MILE/) · [Bill of materials](BOM/BOM.xlsx)
 
 ## Sensor overview
 
